@@ -45,7 +45,9 @@ io.on('connection' , (socket) => {
   var bannerLength = 2
   var readFrameBytes = 0
   var frameBodyLength = 0
-  var frameBody = new Buffer(0)
+  
+  var frameBody = Buffer.alloc(0)
+ // var frameBody = new Buffer(0)
 
   var banner = {
     version: 0
@@ -158,7 +160,9 @@ io.on('connection' , (socket) => {
 
             cursor += frameBodyLength
             frameBodyLength = readFrameBytes = 0
-            frameBody = new Buffer(0)
+            
+            frameBody = Buffer.alloc(0)
+            //frameBody = new Buffer(0)
           }
           else {
             console.info('body(len=%d)', len - cursor)
